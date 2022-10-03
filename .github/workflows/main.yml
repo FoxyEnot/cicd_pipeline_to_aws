@@ -9,12 +9,10 @@ env:
   DEPLY_PACKAGE_NAME        : "flask_app_${{ github.sha }}.zip"
   AWS_REGION_NAME           : "us-east-1"
   
-  
 on:
   push:
     branches:
       - master
-
 
 jobs:
     my-ci-part: 
