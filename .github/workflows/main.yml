@@ -1,0 +1,41 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI-CD-pipeline-to-AWS
+
+env:
+  EB_PACKAGE_S3_BUCKET_NAME : "enot-flask-application-packages"
+  EB_APPLICATION_NAME       : "MyFlask"
+  EB_ENVIRONMENT_NAME       : "Myflask-env"
+  DEPLY_PACKAGE_NAME        : "flask_app_${{ github.sha }}.zip"
+  AWS_REGION_NAME           : "us-east-1"
+  
+  
+on:
+  push:
+    branches:
+      - master
+
+
+jobs:
+    my-ci-part:
+    
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Git clone our repo
+      - uses: actions/checkout@v3
+
+      - name: Create ZIP deployment package
+        run : zip -r ${{ env.DEPLY_PACKAGE_NAME }} ./ -x *.git*
+
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
